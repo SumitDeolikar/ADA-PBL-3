@@ -8,6 +8,18 @@ using namespace std;
 #define EMPTY_STRING ""
 
 
+struct comp
+{
+    bool operator()(const Node* l, const Node* r) const
+    {
+        return l->freq > r->freq;
+    }
+};
+ 
+bool isLeaf(Node* root) {
+    return root->left == nullptr && root->right == nullptr;
+}
+
 void encode(Node* root, string str, unordered_map<char, string> &huffmanCode)
 {
     if (root == nullptr) {
